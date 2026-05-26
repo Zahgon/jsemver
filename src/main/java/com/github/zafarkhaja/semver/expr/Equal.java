@@ -57,6 +57,6 @@ class Equal implements Expression {
      */
     @Override
     public boolean interpret(Version version) {
-        return version.isEquivalentTo(parsedVersion);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

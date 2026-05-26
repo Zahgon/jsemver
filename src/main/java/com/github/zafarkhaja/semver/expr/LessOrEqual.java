@@ -59,6 +59,6 @@ class LessOrEqual implements Expression {
      */
     @Override
     public boolean interpret(Version version) {
-        return version.isLowerThanOrEquivalentTo(parsedVersion);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

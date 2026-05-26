@@ -49,7 +49,6 @@ public class LexerException extends ParseException {
      */
     LexerException(String expr) {
         super("Illegal character near '" + expr + "'");
-
         this.expr = expr;
     }
 
@@ -60,6 +59,6 @@ public class LexerException extends ParseException {
      */
     @Override
     public String toString() {
-        return getMessage();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

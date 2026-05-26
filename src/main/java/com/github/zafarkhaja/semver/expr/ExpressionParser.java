@@ -70,7 +70,7 @@ public class ExpressionParser implements Parser<Expression> {
      * @return a new instance of the {@code ExpressionParser} class
      */
     public static Parser<Expression> newInstance() {
-        return new ExpressionParser(new Lexer());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -83,10 +83,7 @@ public class ExpressionParser implements Parser<Expression> {
      */
     @Override
     public Expression parse(String input) {
-        tokens = lexer.tokenize(input);
-        Expression expr = parseSemVerExpression();
-        consumeNextToken(EOI);
-        return expr;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -188,7 +185,7 @@ public class ExpressionParser implements Parser<Expression> {
     private CompositeExpression parseComparisonRange() {
         Token token = tokens.lookahead();
         CompositeExpression expr;
-        switch (token.type) {
+        switch(token.type) {
             case EQUAL:
                 tokens.consume();
                 expr = eq(parseVersion());
@@ -324,7 +321,6 @@ public class ExpressionParser implements Parser<Expression> {
             tokens.consume();
             return gte(Version.of(0, 0, 0));
         }
-
         long major = consumeNextNumeric();
         consumeNextToken(DOT);
         if (tokens.positiveLookahead(WILDCARD)) {
@@ -333,7 +329,6 @@ public class ExpressionParser implements Parser<Expression> {
             Version hi = lo.nextMajorVersion();
             return gte(lo).and(lt(hi));
         }
-
         long minor = consumeNextNumeric();
         consumeNextToken(DOT);
         consumeNextToken(WILDCARD);

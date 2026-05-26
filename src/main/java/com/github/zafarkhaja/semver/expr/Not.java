@@ -56,6 +56,6 @@ class Not implements Expression {
      */
     @Override
     public boolean interpret(Version version) {
-        return !expr.interpret(version);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

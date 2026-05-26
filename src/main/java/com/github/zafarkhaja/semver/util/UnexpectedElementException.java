@@ -62,7 +62,6 @@ public class UnexpectedElementException extends RuntimeException {
      */
     UnexpectedElementException(Object unexpected, int position, ElementType<?>... expected) {
         super(createMessage(unexpected, position, expected));
-
         this.unexpected = unexpected;
         this.position = position;
         this.expected = expected;
@@ -74,7 +73,7 @@ public class UnexpectedElementException extends RuntimeException {
      * @return the unexpected element
      */
     public Object getUnexpectedElement() {
-        return unexpected;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -83,7 +82,7 @@ public class UnexpectedElementException extends RuntimeException {
      * @return the position of the unexpected element
      */
     public int getPosition() {
-        return position;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -92,7 +91,7 @@ public class UnexpectedElementException extends RuntimeException {
      * @return an array of expected element types
      */
     public ElementType<?>[] getExpectedElementTypes() {
-        return expected;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -104,7 +103,7 @@ public class UnexpectedElementException extends RuntimeException {
      */
     @Override
     public String toString() {
-        return getMessage();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private static String createMessage(Object unexpected, int position, ElementType<?>... expected) {

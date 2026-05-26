@@ -58,6 +58,6 @@ class Less implements Expression {
      */
     @Override
     public boolean interpret(Version version) {
-        return version.isLowerThan(parsedVersion);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

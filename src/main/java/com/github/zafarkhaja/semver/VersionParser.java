@@ -44,90 +44,82 @@ class VersionParser implements Parser<Version> {
     enum CharType implements Stream.ElementType<Character> {
 
         DIGIT {
+
             /**
              * {@inheritDoc}
              */
             @Override
             public boolean isMatchedBy(Character chr) {
-                if (chr == null) {
-                    return false;
-                }
-                return chr >= '0' && chr <= '9';
+                throw new UnsupportedOperationException("STUB: not implemented");
             }
-        },
+        }
+        ,
         LETTER {
+
             /**
              * {@inheritDoc}
              */
             @Override
             public boolean isMatchedBy(Character chr) {
-                if (chr == null) {
-                    return false;
-                }
-                return (chr >= 'a' && chr <= 'z')
-                    || (chr >= 'A' && chr <= 'Z');
+                throw new UnsupportedOperationException("STUB: not implemented");
             }
-        },
+        }
+        ,
         DOT {
+
             /**
              * {@inheritDoc}
              */
             @Override
             public boolean isMatchedBy(Character chr) {
-                if (chr == null) {
-                    return false;
-                }
-                return chr == '.';
+                throw new UnsupportedOperationException("STUB: not implemented");
             }
-        },
+        }
+        ,
         HYPHEN {
+
             /**
              * {@inheritDoc}
              */
             @Override
             public boolean isMatchedBy(Character chr) {
-                if (chr == null) {
-                    return false;
-                }
-                return chr == '-';
+                throw new UnsupportedOperationException("STUB: not implemented");
             }
-        },
+        }
+        ,
         PLUS {
+
             /**
              * {@inheritDoc}
              */
             @Override
             public boolean isMatchedBy(Character chr) {
-                if (chr == null) {
-                    return false;
-                }
-                return chr == '+';
+                throw new UnsupportedOperationException("STUB: not implemented");
             }
-        },
+        }
+        ,
         EOI {
+
             /**
              * {@inheritDoc}
              */
             @Override
             public boolean isMatchedBy(Character chr) {
-                return chr == null;
+                throw new UnsupportedOperationException("STUB: not implemented");
             }
-        },
+        }
+        ,
         ILLEGAL {
+
             /**
              * {@inheritDoc}
              */
             @Override
             public boolean isMatchedBy(Character chr) {
-                EnumSet<CharType> itself = EnumSet.of(ILLEGAL);
-                for (CharType type : EnumSet.complementOf(itself)) {
-                    if (type.isMatchedBy(chr)) {
-                        return false;
-                    }
-                }
-                return true;
+                throw new UnsupportedOperationException("STUB: not implemented");
             }
-        };
+        }
+        ;
 
         /**
          * Gets the type for a given character.
@@ -136,12 +128,7 @@ class VersionParser implements Parser<Version> {
          * @return the type of the specified character
          */
         static CharType forCharacter(Character chr) {
-            for (CharType type : values()) {
-                if (type.isMatchedBy(chr)) {
-                    return type;
-                }
-            }
-            return null;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -174,7 +161,6 @@ class VersionParser implements Parser<Version> {
      */
     VersionParser(String input, boolean strictModeOn) {
         isStrictModeOn = strictModeOn;
-
         if (input == null || input.isEmpty()) {
             throw new IllegalArgumentException("Input string is NULL or empty");
         }
@@ -195,7 +181,7 @@ class VersionParser implements Parser<Version> {
      */
     @Override
     public Version parse(String input) {
-        return parseValidSemVer();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -208,7 +194,7 @@ class VersionParser implements Parser<Version> {
      * @throws UnexpectedCharacterException when encounters an unexpected character type
      */
     static Version parseValidSemVer(String version) {
-        return parseValidSemVer(version, true);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -222,8 +208,7 @@ class VersionParser implements Parser<Version> {
      * @throws UnexpectedCharacterException when encounters an unexpected character type
      */
     static Version parseValidSemVer(String version, boolean strictModeOn) {
-        VersionParser parser = new VersionParser(version, strictModeOn);
-        return parser.parseValidSemVer();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -236,9 +221,7 @@ class VersionParser implements Parser<Version> {
      * @throws UnexpectedCharacterException when encounters an unexpected character type
      */
     static Version parseVersionCore(String versionCore) {
-        VersionParser parser = new VersionParser(versionCore);
-        long[] versionParts = parser.parseVersionCore();
-        return Version.of(versionParts[0], versionParts[1], versionParts[2]);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -251,10 +234,7 @@ class VersionParser implements Parser<Version> {
      * @throws UnexpectedCharacterException when encounters an unexpected character type
      */
     static String[] parsePreRelease(String preRelease) {
-        VersionParser parser = new VersionParser(preRelease);
-        String[] result = parser.parsePreRelease();
-        parser.ensureValidLookahead(EOI);
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -267,10 +247,7 @@ class VersionParser implements Parser<Version> {
      * @throws UnexpectedCharacterException when encounters an unexpected character type
      */
     static String[] parseBuild(String build) {
-        VersionParser parser = new VersionParser(build);
-        String[] result = parser.parseBuild();
-        parser.ensureValidLookahead(EOI);
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -291,7 +268,6 @@ class VersionParser implements Parser<Version> {
         long[] versionParts = parseVersionCore();
         String[] preRelease = new String[0];
         String[] build = new String[0];
-
         Character next = consumeNextCharacter(HYPHEN, PLUS, EOI);
         if (HYPHEN.isMatchedBy(next)) {
             preRelease = parsePreRelease();
@@ -317,20 +293,17 @@ class VersionParser implements Parser<Version> {
      */
     private long[] parseVersionCore() {
         long major = numericIdentifier();
-
         long minor = 0;
         if (isStrictModeOn || chars.positiveLookahead(DOT)) {
             consumeNextCharacter(DOT);
             minor = numericIdentifier();
         }
-
         long patch = 0;
         if (isStrictModeOn || chars.positiveLookahead(DOT)) {
             consumeNextCharacter(DOT);
             patch = numericIdentifier();
         }
-
-        return new long[] {major, minor, patch};
+        return new long[] { major, minor, patch };
     }
 
     /**
@@ -523,9 +496,7 @@ class VersionParser implements Parser<Version> {
         Character la1 = chars.lookahead(1);
         Character la2 = chars.lookahead(2);
         if (la1 != null && la1 == '0' && DIGIT.isMatchedBy(la2)) {
-            throw new ParseException(
-                "Numeric identifier MUST NOT contain leading zeroes"
-            );
+            throw new ParseException("Numeric identifier MUST NOT contain leading zeroes");
         }
     }
 
@@ -538,14 +509,7 @@ class VersionParser implements Parser<Version> {
     private void checkForEmptyIdentifier() {
         Character la = chars.lookahead(1);
         if (DOT.isMatchedBy(la) || PLUS.isMatchedBy(la) || EOI.isMatchedBy(la)) {
-            throw new ParseException(
-                "Identifiers MUST NOT be empty",
-                new UnexpectedCharacterException(
-                    la,
-                    chars.currentOffset(),
-                    DIGIT, LETTER, HYPHEN
-                )
-            );
+            throw new ParseException("Identifiers MUST NOT be empty", new UnexpectedCharacterException(la, chars.currentOffset(), DIGIT, LETTER, HYPHEN));
         }
     }
 
@@ -572,11 +536,7 @@ class VersionParser implements Parser<Version> {
      */
     private void ensureValidLookahead(CharType... expected) {
         if (!chars.positiveLookahead(expected)) {
-            throw new UnexpectedCharacterException(
-                chars.lookahead(1),
-                chars.currentOffset(),
-                expected
-            );
+            throw new UnexpectedCharacterException(chars.lookahead(1), chars.currentOffset(), expected);
         }
     }
 }

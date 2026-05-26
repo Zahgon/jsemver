@@ -68,12 +68,6 @@ public class ParseException extends RuntimeException {
      */
     @Override
     public String toString() {
-        Throwable cause = getCause();
-        String msg = getMessage();
-        if (msg != null) {
-            msg += ((cause != null) ? " (" + cause + ")" : "");
-            return msg;
-        }
-        return ((cause != null) ? cause.toString() : "");
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

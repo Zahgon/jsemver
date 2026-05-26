@@ -85,10 +85,7 @@ public class Stream<E> implements Iterable<E> {
      *         or {@code null} if no more elements left
      */
     public E consume() {
-        if (offset >= elements.length) {
-            return null;
-        }
-        return elements[offset++];
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -104,22 +101,14 @@ public class Stream<E> implements Iterable<E> {
      */
     @SafeVarargs
     public final <T extends ElementType<E>> E consume(T... expected) {
-        E lookahead = lookahead(1);
-        for (ElementType<E> type : expected) {
-            if (type.isMatchedBy(lookahead)) {
-                return consume();
-            }
-        }
-        throw new UnexpectedElementException(lookahead, offset, expected);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * Pushes back one element at a time.
      */
     public void pushBack() {
-        if (offset > 0) {
-            offset--;
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -128,7 +117,7 @@ public class Stream<E> implements Iterable<E> {
      * @return the next element in this stream
      */
     public E lookahead() {
-        return lookahead(1);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -140,11 +129,7 @@ public class Stream<E> implements Iterable<E> {
      *         or {@code null} if no more elements left
      */
     public E lookahead(int position) {
-        int idx = offset + position - 1;
-        if (idx < elements.length) {
-            return elements[idx];
-        }
-        return null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -153,7 +138,7 @@ public class Stream<E> implements Iterable<E> {
      * @return the current offset of this stream
      */
     public int currentOffset() {
-        return offset;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -168,12 +153,7 @@ public class Stream<E> implements Iterable<E> {
      */
     @SafeVarargs
     public final <T extends ElementType<E>> boolean positiveLookahead(T... expected) {
-        for (ElementType<E> type : expected) {
-            if (type.isMatchedBy(lookahead(1))) {
-                return true;
-            }
-        }
-        return false;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -189,23 +169,8 @@ public class Stream<E> implements Iterable<E> {
      *         before the specified type or {@code false} otherwise
      */
     @SafeVarargs
-    public final <T extends ElementType<E>> boolean positiveLookaheadBefore(
-        ElementType<E> before,
-        T... expected
-    ) {
-        E lookahead;
-        for (int i = 1; i <= elements.length; i++) {
-            lookahead = lookahead(i);
-            if (before.isMatchedBy(lookahead)) {
-                break;
-            }
-            for (ElementType<E> type : expected) {
-                if (type.isMatchedBy(lookahead)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    public final <T extends ElementType<E>> boolean positiveLookaheadBefore(ElementType<E> before, T... expected) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -221,18 +186,8 @@ public class Stream<E> implements Iterable<E> {
      *         until the specified position or {@code false} otherwise
      */
     @SafeVarargs
-    public final <T extends ElementType<E>> boolean positiveLookaheadUntil(
-        int until,
-        T... expected
-    ) {
-        for (int i = 1; i <= until; i++) {
-            for (ElementType<E> type : expected) {
-                if (type.isMatchedBy(lookahead(i))) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    public final <T extends ElementType<E>> boolean positiveLookaheadUntil(int until, T... expected) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -242,45 +197,7 @@ public class Stream<E> implements Iterable<E> {
      */
     @Override
     public Iterator<E> iterator() {
-        return new Iterator<E>() {
-
-            /**
-             * The index to indicate the current position
-             * of this iterator.
-             * <p>
-             * The starting point is set to the current
-             * value of this stream's offset, so that it
-             * doesn't iterate over consumed elements.
-             */
-            private int index = offset;
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public boolean hasNext() {
-                return index < elements.length;
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public E next() {
-                if (index >= elements.length) {
-                    throw new NoSuchElementException();
-                }
-                return elements[index++];
-            }
-
-            /**
-             * {@inheritDoc}
-             */
-            @Override
-            public void remove() {
-                throw new UnsupportedOperationException();
-            }
-        };
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -292,6 +209,6 @@ public class Stream<E> implements Iterable<E> {
      * @return an array containing all of elements in this stream
      */
     public E[] toArray() {
-        return Arrays.copyOfRange(elements, offset, elements.length);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

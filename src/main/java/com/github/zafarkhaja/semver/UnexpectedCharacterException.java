@@ -61,11 +61,7 @@ public class UnexpectedCharacterException extends ParseException {
      * @param cause the wrapped exception
      */
     UnexpectedCharacterException(UnexpectedElementException cause) {
-        this(
-            (Character) cause.getUnexpectedElement(),
-            cause.getPosition(),
-            (CharType[]) cause.getExpectedElementTypes()
-        );
+        this((Character) cause.getUnexpectedElement(), cause.getPosition(), (CharType[]) cause.getExpectedElementTypes());
     }
 
     /**
@@ -78,10 +74,9 @@ public class UnexpectedCharacterException extends ParseException {
      */
     UnexpectedCharacterException(Character unexpected, int position, CharType... expected) {
         super(createMessage(unexpected, position, expected));
-
         this.unexpected = unexpected;
-        this.position   = position;
-        this.expected   = expected;
+        this.position = position;
+        this.expected = expected;
     }
 
     /**
@@ -90,7 +85,7 @@ public class UnexpectedCharacterException extends ParseException {
      * @return the unexpected character
      */
     Character getUnexpectedCharacter() {
-        return unexpected;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -99,7 +94,7 @@ public class UnexpectedCharacterException extends ParseException {
      * @return the position of the unexpected character
      */
     int getPosition() {
-        return position;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -108,7 +103,7 @@ public class UnexpectedCharacterException extends ParseException {
      * @return an array of expected character types
      */
     CharType[] getExpectedCharTypes() {
-        return expected;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -120,16 +115,11 @@ public class UnexpectedCharacterException extends ParseException {
      */
     @Override
     public String toString() {
-        return getMessage();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private static String createMessage(Character unexpected, int position, CharType... expected) {
-        String msg = String.format(
-            "Unexpected character %s(%s) at position %d",
-            CharType.forCharacter(unexpected),
-            unexpected,
-            position
-        );
+        String msg = String.format("Unexpected character %s(%s) at position %d", CharType.forCharacter(unexpected), unexpected, position);
         if (expected.length > 0) {
             msg += String.format(", expecting %s", Arrays.toString(expected));
         }

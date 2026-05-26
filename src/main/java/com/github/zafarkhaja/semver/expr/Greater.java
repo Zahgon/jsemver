@@ -58,6 +58,6 @@ class Greater implements Expression {
      */
     @Override
     public boolean interpret(Version version) {
-        return version.isHigherThan(parsedVersion);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

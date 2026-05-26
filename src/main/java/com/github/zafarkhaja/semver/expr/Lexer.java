@@ -90,7 +90,7 @@ class Lexer {
              */
             @Override
             public String toString() {
-                return name() + "(" + pattern + ")";
+                throw new UnsupportedOperationException("STUB: not implemented");
             }
 
             /**
@@ -98,10 +98,7 @@ class Lexer {
              */
             @Override
             public boolean isMatchedBy(Token token) {
-                if (token == null) {
-                    return false;
-                }
-                return this == token.type;
+                throw new UnsupportedOperationException("STUB: not implemented");
             }
         }
 
@@ -139,17 +136,7 @@ class Lexer {
          */
         @Override
         public boolean equals(Object other) {
-            if (this == other) {
-                return true;
-            }
-            if (!(other instanceof Token)) {
-                return false;
-            }
-            Token token = (Token) other;
-            return
-                type.equals(token.type) &&
-                lexeme.equals(token.lexeme) &&
-                position == token.position;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -157,11 +144,7 @@ class Lexer {
          */
         @Override
         public int hashCode() {
-            int hash = 5;
-            hash = 71 * hash + type.hashCode();
-            hash = 71 * hash + lexeme.hashCode();
-            hash = 71 * hash + position;
-            return hash;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -171,11 +154,7 @@ class Lexer {
          */
         @Override
         public String toString() {
-            return String.format(
-                "%s(%s) at position %d",
-                type.name(),
-                lexeme, position
-            );
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -183,7 +162,6 @@ class Lexer {
      * Constructs a {@code Lexer} instance.
      */
     Lexer() {
-
     }
 
     /**
@@ -194,31 +172,6 @@ class Lexer {
      * @throws LexerException when encounters an illegal character
      */
     Stream<Token> tokenize(String input) {
-        List<Token> tokens = new ArrayList<>();
-        int tokenPos = 0;
-        while (!input.isEmpty()) {
-            boolean matched = false;
-            for (Token.Type tokenType : Token.Type.values()) {
-                Matcher matcher = tokenType.pattern.matcher(input);
-                if (matcher.find()) {
-                    matched = true;
-                    input = matcher.replaceFirst("");
-                    if (tokenType != Token.Type.WHITESPACE) {
-                        tokens.add(new Token(
-                            tokenType,
-                            matcher.group(),
-                            tokenPos
-                        ));
-                    }
-                    tokenPos += matcher.end();
-                    break;
-                }
-            }
-            if (!matched) {
-                throw new LexerException(input);
-            }
-        }
-        tokens.add(new Token(Token.Type.EOI, null, tokenPos));
-        return new Stream<>(tokens.toArray(new Token[0]));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

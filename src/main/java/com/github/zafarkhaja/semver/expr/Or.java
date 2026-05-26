@@ -64,6 +64,6 @@ class Or implements Expression {
      */
     @Override
     public boolean interpret(Version version) {
-        return left.interpret(version) || right.interpret(version);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

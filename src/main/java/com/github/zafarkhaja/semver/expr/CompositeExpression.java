@@ -49,7 +49,7 @@ public class CompositeExpression implements Expression {
          * @return a newly created {@code CompositeExpression}
          */
         public static CompositeExpression not(Expression expr) {
-            return new CompositeExpression(new Not(expr));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -60,7 +60,7 @@ public class CompositeExpression implements Expression {
          * @return a newly created {@code CompositeExpression}
          */
         public static CompositeExpression eq(Version version) {
-            return new CompositeExpression(new Equal(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -74,7 +74,7 @@ public class CompositeExpression implements Expression {
          * @throws UnexpectedCharacterException is a special case of {@code ParseException}
          */
         public static CompositeExpression eq(String version) {
-            return eq(Version.parse(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -85,7 +85,7 @@ public class CompositeExpression implements Expression {
          * @return a newly created {@code CompositeExpression}
          */
         public static CompositeExpression neq(Version version) {
-            return new CompositeExpression(new NotEqual(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -99,7 +99,7 @@ public class CompositeExpression implements Expression {
          * @throws UnexpectedCharacterException is a special case of {@code ParseException}
          */
         public static CompositeExpression neq(String version) {
-            return neq(Version.parse(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -110,7 +110,7 @@ public class CompositeExpression implements Expression {
          * @return a newly created {@code CompositeExpression}
          */
         public static CompositeExpression gt(Version version) {
-            return new CompositeExpression(new Greater(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -124,7 +124,7 @@ public class CompositeExpression implements Expression {
          * @throws UnexpectedCharacterException is a special case of {@code ParseException}
          */
         public static CompositeExpression gt(String version) {
-            return gt(Version.parse(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -135,7 +135,7 @@ public class CompositeExpression implements Expression {
          * @return a newly created {@code CompositeExpression}
          */
         public static CompositeExpression gte(Version version) {
-            return new CompositeExpression(new GreaterOrEqual(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -149,7 +149,7 @@ public class CompositeExpression implements Expression {
          * @throws UnexpectedCharacterException is a special case of {@code ParseException}
          */
         public static CompositeExpression gte(String version) {
-            return gte(Version.parse(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -160,7 +160,7 @@ public class CompositeExpression implements Expression {
          * @return a newly created {@code CompositeExpression}
          */
         public static CompositeExpression lt(Version version) {
-            return new CompositeExpression(new Less(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -174,7 +174,7 @@ public class CompositeExpression implements Expression {
          * @throws UnexpectedCharacterException is a special case of {@code ParseException}
          */
         public static CompositeExpression lt(String version) {
-            return lt(Version.parse(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -185,7 +185,7 @@ public class CompositeExpression implements Expression {
          * @return a newly created {@code CompositeExpression}
          */
         public static CompositeExpression lte(Version version) {
-            return new CompositeExpression(new LessOrEqual(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -199,7 +199,7 @@ public class CompositeExpression implements Expression {
          * @throws UnexpectedCharacterException is a special case of {@code ParseException}
          */
         public static CompositeExpression lte(String version) {
-            return lte(Version.parse(version));
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -226,10 +226,8 @@ public class CompositeExpression implements Expression {
      * @return this {@code CompositeExpression}
      */
     public CompositeExpression and(Expression expr) {
-        exprTree = new And(exprTree, expr);
-        return this;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 
     /**
      * Adds another {@code Expression} to {@code CompositeExpression}
@@ -239,8 +237,7 @@ public class CompositeExpression implements Expression {
      * @return this {@code CompositeExpression}
      */
     public CompositeExpression or(Expression expr) {
-        exprTree = new Or(exprTree, expr);
-        return this;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -253,7 +250,7 @@ public class CompositeExpression implements Expression {
      * @throws UnexpectedCharacterException is a special case of {@code ParseException}
      */
     public boolean interpret(String version) {
-        return interpret(Version.parse(version));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -261,6 +258,6 @@ public class CompositeExpression implements Expression {
      */
     @Override
     public boolean interpret(Version version) {
-        return exprTree.interpret(version);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

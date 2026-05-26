@@ -55,10 +55,7 @@ public class UnexpectedTokenException extends ParseException {
      * @param cause the wrapped exception
      */
     UnexpectedTokenException(UnexpectedElementException cause) {
-        this(
-            (Token) cause.getUnexpectedElement(),
-            (Token.Type[]) cause.getExpectedElementTypes()
-        );
+        this((Token) cause.getUnexpectedElement(), (Token.Type[]) cause.getExpectedElementTypes());
     }
 
     /**
@@ -70,7 +67,6 @@ public class UnexpectedTokenException extends ParseException {
      */
     UnexpectedTokenException(Token unexpected, Token.Type... expected) {
         super(createMessage(unexpected, expected));
-
         this.unexpected = unexpected;
         this.expected = expected;
     }
@@ -81,7 +77,7 @@ public class UnexpectedTokenException extends ParseException {
      * @return the unexpected token
      */
     Token getUnexpectedToken() {
-        return unexpected;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -90,7 +86,7 @@ public class UnexpectedTokenException extends ParseException {
      * @return an array of expected token types
      */
     Token.Type[] getExpectedTokenTypes() {
-        return expected;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -102,7 +98,7 @@ public class UnexpectedTokenException extends ParseException {
      */
     @Override
     public String toString() {
-        return getMessage();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private static String createMessage(Token unexpected, Token.Type... expected) {

@@ -66,7 +66,8 @@ public class Version implements Comparable<Version>, Serializable {
         /**
          * Default constructor, initializes fields with default values (0.0.0)
          */
-        public Builder() {}
+        public Builder() {
+        }
 
         /**
          * Sets the major version; the minor and patch versions are assigned 0.
@@ -77,7 +78,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @since  0.10.0
          */
         public Builder setVersionCore(long major) {
-            return setVersionCore(major, 0, 0);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -90,7 +91,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @since  0.10.0
          */
         public Builder setVersionCore(long major, long minor) {
-            return setVersionCore(major, minor, 0);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -104,11 +105,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @since  0.10.0
          */
         public Builder setVersionCore(long major, long minor, long patch) {
-            return
-                setMajorVersion(major).
-                setMinorVersion(minor).
-                setPatchVersion(patch)
-            ;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -120,8 +117,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @since  0.10.0
          */
         public Builder setMajorVersion(long major) {
-            this.major = nonNegative(major, "major");
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -133,8 +129,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @since  0.10.0
          */
         public Builder setMinorVersion(long minor) {
-            this.minor = nonNegative(minor, "minor");
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -146,8 +141,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @since  0.10.0
          */
         public Builder setPatchVersion(long patch) {
-            this.patch = nonNegative(patch, "patch");
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -161,8 +155,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @throws IllegalArgumentException if {@code ids} is null/empty or contains null
          */
         public Builder setPreReleaseVersion(String... ids) {
-            preReleaseIds = oneOrMoreNonNulls(ids, "ids").clone();
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -181,12 +174,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @since  0.10.0
          */
         public Builder addPreReleaseIdentifiers(String... ids) {
-            if (preReleaseIds.length == 0) {
-                return setPreReleaseVersion(ids);
-            }
-
-            preReleaseIds = concatArrays(preReleaseIds, oneOrMoreNonNulls(ids, "ids"));
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -196,8 +184,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @since  0.10.0
          */
         public Builder unsetPreReleaseVersion() {
-            preReleaseIds = new String[0];
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -211,8 +198,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @throws IllegalArgumentException if {@code ids} is null/empty or contains null
          */
         public Builder setBuildMetadata(String... ids) {
-            buildIds = oneOrMoreNonNulls(ids, "ids").clone();
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -231,12 +217,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @since  0.10.0
          */
         public Builder addBuildIdentifiers(String... ids) {
-            if (buildIds.length == 0) {
-                return setBuildMetadata(ids);
-            }
-
-            buildIds = concatArrays(buildIds, oneOrMoreNonNulls(ids, "ids"));
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -246,8 +227,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @since  0.10.0
          */
         public Builder unsetBuildMetadata() {
-            buildIds = new String[0];
-            return this;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         /**
@@ -258,13 +238,7 @@ public class Version implements Comparable<Version>, Serializable {
          * @see    Version#of(long, long, long, String, String)
          */
         public Version build() {
-            return Version.of(
-                major,
-                minor,
-                patch,
-                joinIdentifiers(preReleaseIds),
-                joinIdentifiers(buildIds)
-            );
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         private static String[] concatArrays(String[] ids1, String[] ids2) {
@@ -296,11 +270,7 @@ public class Version implements Comparable<Version>, Serializable {
         @SuppressWarnings("DeprecatedIsStillUsed")
         public Builder setNormalVersion(String normal) {
             String[] parts = nonNull(normal, "normal").split("\\" + IDENTIFIER_SEPARATOR);
-            return setVersionCore(
-                Long.parseLong(parts[0]),
-                parts.length > 1 ? Long.parseLong(parts[1]) : 0,
-                parts.length > 2 ? Long.parseLong(parts[2]) : 0
-            );
+            return setVersionCore(Long.parseLong(parts[0]), parts.length > 1 ? Long.parseLong(parts[1]) : 0, parts.length > 2 ? Long.parseLong(parts[2]) : 0);
         }
     }
 
@@ -389,7 +359,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Version parse(String version) {
-        return parse(version, true);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -407,7 +377,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Version parse(String version, boolean strictly) {
-        return VersionParser.parseValidSemVer(nonNull(version, "version"), strictly);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -421,7 +391,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Optional<Version> tryParse(String version) {
-        return tryParse(version, true);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -438,11 +408,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Optional<Version> tryParse(String version, boolean strictly) {
-        try {
-            return Optional.of(Version.parse(version, strictly));
-        } catch (RuntimeException e) {
-            return Optional.empty();
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -470,7 +436,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static boolean isValid(String version) {
-        return isValid(version, true);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -487,7 +453,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static boolean isValid(String version, boolean strictly) {
-        return tryParse(version, strictly).isPresent();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -499,7 +465,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Version of(long major) {
-        return Version.of(major, 0, 0, null, null);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -514,7 +480,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Version of(long major, String preRelease) {
-        return Version.of(major, 0, 0, preRelease, null);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -530,7 +496,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Version of(long major, String preRelease, String build) {
-        return Version.of(major, 0, 0, preRelease, build);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -543,7 +509,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Version of(long major, long minor) {
-        return Version.of(major, minor, 0, null, null);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -559,7 +525,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Version of(long major, long minor, String preRelease) {
-        return Version.of(major, minor, 0, preRelease, null);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -576,7 +542,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Version of(long major, long minor, String preRelease, String build) {
-        return Version.of(major, minor, 0, preRelease, build);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -591,7 +557,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Version of(long major, long minor, long patch) {
-        return Version.of(major, minor, patch, null, null);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -608,7 +574,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Version of(long major, long minor, long patch, String preRelease) {
-        return Version.of(major, minor, patch, preRelease, null);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -626,13 +592,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public static Version of(long major, long minor, long patch, String preRelease, String build) {
-        return new Version(
-            major,
-            minor,
-            patch,
-            preRelease == null ? new String[0] : parsePreRelease(preRelease),
-            build == null ? new String[0] : parseBuild(build)
-        );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -642,7 +602,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public long majorVersion() {
-        return major;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -652,7 +612,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public long minorVersion() {
-        return minor;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -662,7 +622,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public long patchVersion() {
-        return patch;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -673,7 +633,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Optional<String> preReleaseVersion() {
-        return Optional.ofNullable(joinIdentifiers(preReleaseIds));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -684,7 +644,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Optional<String> buildMetadata() {
-        return Optional.ofNullable(joinIdentifiers(buildIds));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -704,7 +664,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Version nextMajorVersion(String... preReleaseIds) {
-        return nextMajorVersion(safeIncrement(major), preReleaseIds);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -730,12 +690,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Version nextMajorVersion(long major, String... preReleaseIds) {
-        if (this.major >= nonNegative(major, "major")) {
-            throw new IllegalStateException("This major version is higher or equivalent");
-        }
-
-        String preRelease = joinIdentifiers(zeroOrMoreNonNulls(preReleaseIds, "preReleaseIds"));
-        return Version.of(major, 0, 0, preRelease);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -755,7 +710,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Version nextMinorVersion(String... preReleaseIds) {
-        return nextMinorVersion(safeIncrement(minor), preReleaseIds);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -781,12 +736,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Version nextMinorVersion(long minor, String... preReleaseIds) {
-        if (this.minor >= nonNegative(minor, "minor")) {
-            throw new IllegalStateException("This minor version is higher or equivalent");
-        }
-
-        String preRelease = joinIdentifiers(zeroOrMoreNonNulls(preReleaseIds, "preReleaseIds"));
-        return Version.of(major, minor, 0, preRelease);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -806,7 +756,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Version nextPatchVersion(String... preReleaseIds) {
-        return nextPatchVersion(safeIncrement(patch), preReleaseIds);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -832,12 +782,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Version nextPatchVersion(long patch, String... preReleaseIds) {
-        if (this.patch >= nonNegative(patch, "patch")) {
-            throw new IllegalStateException("This patch version is higher or equivalent");
-        }
-
-        String preRelease = joinIdentifiers(zeroOrMoreNonNulls(preReleaseIds, "preReleaseIds"));
-        return Version.of(major, minor, patch, preRelease);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -868,23 +813,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Version nextPreReleaseVersion(String... ids) {
-        if (!isPreRelease()) {
-            throw new IllegalStateException("Not a pre-release version");
-        }
-
-        zeroOrMoreNonNulls(ids, "ids");
-
-        String[] newPreReleaseIds;
-        if (ids.length > 0) {
-            newPreReleaseIds = parsePreRelease(joinIdentifiers(ids));
-            if (compareIdentifierArrays(preReleaseIds, newPreReleaseIds) >= 0) {
-                throw new IllegalStateException("This pre-release version is higher or equivalent");
-            }
-        } else {
-            newPreReleaseIds = incrementIdentifiers(preReleaseIds);
-        }
-
-        return new Version(major, minor, patch, newPreReleaseIds);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -896,7 +825,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Version toStableVersion() {
-        return isStable() ? this : new Version(major, minor, patch);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -912,8 +841,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Version withBuildMetadata(String... ids) {
-        String[] newBuildIds = parseBuild(joinIdentifiers(oneOrMoreNonNulls(ids, "ids")));
-        return new Version(major, minor, patch, preReleaseIds, newBuildIds);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -923,7 +851,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Version withoutBuildMetadata() {
-        return !buildMetadata().isPresent() ? this : new Version(major, minor, patch, preReleaseIds);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -936,7 +864,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean satisfies(Predicate<Version> predicate) {
-        return nonNull(predicate, "predicate").test(this);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -950,8 +878,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.7.0
      */
     public boolean satisfies(String expr) {
-        Parser<Expression> parser = ExpressionParser.newInstance();
-        return satisfies(parser.parse(nonNull(expr, "expr")));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -965,7 +892,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isPreRelease() {
-        return preReleaseVersion().isPresent();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -979,7 +906,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isStable() {
-        return !isPreRelease();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -993,7 +920,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isPublicApiStable() {
-        return isHigherThanOrEquivalentTo(Version.of(1));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1012,7 +939,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isPublicApiCompatibleWith(Version other) {
-        return isPublicApiStable() && isSameMajorVersionAs(other);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1026,8 +953,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isSameMajorVersionAs(Version other) {
-        nonNull(other, "other");
-        return major == other.major;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1041,8 +967,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isSameMinorVersionAs(Version other) {
-        nonNull(other, "other");
-        return major == other.major && minor == other.minor;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1056,8 +981,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isSamePatchVersionAs(Version other) {
-        nonNull(other, "other");
-        return major == other.major && minor == other.minor && patch == other.patch;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1072,7 +996,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isHigherThan(Version other) {
-        return compareToIgnoreBuildMetadata(other) > 0;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1087,7 +1011,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isHigherThanOrEquivalentTo(Version other) {
-        return compareToIgnoreBuildMetadata(other) >= 0;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1102,7 +1026,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isLowerThan(Version other) {
-        return compareToIgnoreBuildMetadata(other) < 0;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1117,7 +1041,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isLowerThanOrEquivalentTo(Version other) {
-        return compareToIgnoreBuildMetadata(other) <= 0;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1136,7 +1060,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public boolean isEquivalentTo(Version other) {
-        return compareToIgnoreBuildMetadata(other) == 0;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1164,16 +1088,7 @@ public class Version implements Comparable<Version>, Serializable {
      */
     @Override
     public int compareTo(Version other) {
-        int result = compareToIgnoreBuildMetadata(other);
-        if (result != 0) {
-            return result;
-        }
-
-        result = compareIdentifierArrays(this.buildIds, other.buildIds);
-        if (this.buildIds.length == 0 || other.buildIds.length == 0) {
-            result = -1 * result;
-        }
-        return result;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1192,18 +1107,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public int compareToIgnoreBuildMetadata(Version other) {
-        nonNull(other, "other");
-        long result = major - other.major;
-        if (result == 0) {
-            result = minor - other.minor;
-            if (result == 0) {
-                result = patch - other.patch;
-                if (result == 0) {
-                    return compareIdentifierArrays(this.preReleaseIds, other.preReleaseIds);
-                }
-            }
-        }
-        return result < 0 ? -1 : 1;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1219,13 +1123,7 @@ public class Version implements Comparable<Version>, Serializable {
      */
     @Override
     public boolean equals(Object other) {
-        if (this == other) {
-            return true;
-        }
-        if (!(other instanceof Version)) {
-            return false;
-        }
-        return compareTo((Version) other) == 0;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1233,13 +1131,7 @@ public class Version implements Comparable<Version>, Serializable {
      */
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Long.hashCode(major);
-        hash = 97 * hash + Long.hashCode(minor);
-        hash = 97 * hash + Long.hashCode(patch);
-        hash = 97 * hash + Arrays.hashCode(preReleaseIds);
-        hash = 97 * hash + Arrays.hashCode(buildIds);
-        return hash;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1247,15 +1139,7 @@ public class Version implements Comparable<Version>, Serializable {
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(major);
-        sb.append(IDENTIFIER_SEPARATOR);
-        sb.append(minor);
-        sb.append(IDENTIFIER_SEPARATOR);
-        sb.append(patch);
-        preReleaseVersion().ifPresent(r -> sb.append(PRE_RELEASE_PREFIX).append(r));
-        buildMetadata().ifPresent(b -> sb.append(BUILD_PREFIX).append(b));
-        return sb.toString();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -1269,11 +1153,7 @@ public class Version implements Comparable<Version>, Serializable {
      * @since  0.10.0
      */
     public Builder toBuilder() {
-        Builder b = new Builder();
-        b.setVersionCore(major, minor, patch);
-        preReleaseVersion().ifPresent(b::setPreReleaseVersion);
-        buildMetadata().ifPresent(b::setBuildMetadata);
-        return b;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private static long safeIncrement(long l) {
@@ -1286,7 +1166,6 @@ public class Version implements Comparable<Version>, Serializable {
 
     private static String[] incrementIdentifiers(String[] ids) {
         String[] newIds;
-
         String lastId = ids[ids.length - 1];
         if (isNumeric(lastId)) {
             newIds = Arrays.copyOf(ids, ids.length);
@@ -1295,7 +1174,6 @@ public class Version implements Comparable<Version>, Serializable {
             newIds = Arrays.copyOf(ids, ids.length + 1);
             newIds[newIds.length - 1] = String.valueOf(1);
         }
-
         return newIds;
     }
 
@@ -1303,13 +1181,11 @@ public class Version implements Comparable<Version>, Serializable {
         if (thisIds.length == 0 && otherIds.length == 0) {
             return 0;
         }
-
         if (thisIds.length == 0 || otherIds.length == 0) {
             // Pre-release versions have a lower precedence than
             // the associated normal version. (SemVer p.9)
             return thisIds.length == 0 ? 1 : -1;
         }
-
         int result = 0;
         int minLength = Math.min(thisIds.length, otherIds.length);
         for (int i = 0; i < minLength; i++) {
@@ -1318,7 +1194,6 @@ public class Version implements Comparable<Version>, Serializable {
                 break;
             }
         }
-
         if (result == 0) {
             // A larger set of pre-release fields has a higher
             // precedence than a smaller set, if all of the
@@ -1347,35 +1222,23 @@ public class Version implements Comparable<Version>, Serializable {
     static class Validators {
 
         static long nonNegative(long arg, String name) {
-            if (arg < 0) {
-                throw new IllegalArgumentException(name + " must not be negative");
-            }
-            return arg;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         static <T> T nonNull(T arg, String name) {
-            return nonNullOrThrow(arg, name + " must not be null");
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         static <T> T[] nonEmpty(T[] arg, String name) {
-            if (nonNull(arg, name).length == 0) {
-                throw new IllegalArgumentException(name + " must not be empty");
-            }
-            return arg;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         static <T> T[] zeroOrMoreNonNulls(T[] arg, String name) {
-            for (T t : nonNull(arg, name)) {
-                nonNullOrThrow(t, name + " must not contain null");
-            }
-            return arg;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         static <T> T[] oneOrMoreNonNulls(T[] arg, String name) {
-            for (T t : nonEmpty(arg, name)) {
-                nonNullOrThrow(t, name + " must not contain null");
-            }
-            return arg;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         private static <T> T nonNullOrThrow(T arg, String msg) {

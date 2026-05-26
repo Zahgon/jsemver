@@ -45,6 +45,6 @@ public interface Expression extends Predicate<Version> {
     boolean interpret(Version version);
 
     default boolean test(Version version) {
-        return interpret(version);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }
